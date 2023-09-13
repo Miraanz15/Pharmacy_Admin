@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function(){
           userName.placeholder = "Enter Username";
 
           var userPassword = document.createElement("input");
-          userPassword.type = "text";
+          userPassword.type = "password";
           userPassword.placeholder = "Enter Password";
 
           var login = document.createElement("button");
@@ -66,7 +66,21 @@ document.addEventListener("DOMContentLoaded", function(){
           main.append(mainHeading, userName, userPassword, login);
 
           /* Main Login Ends */
-        
+
+          /*Functionality Starts */
+          login.addEventListener('click',function(e){
+            if(userName.value !== userPassword.value){
+              alert("Please enter valid credentials!");
+              userName.value = "";
+              userPassword.value = "";
+            }
+            else{ 
+              alert("Login successful!");  
+              userName.value = "";
+              userPassword.value = "";
+            }
+          })  
+          /*Functionality Starts */
   
   });    // End of DOMContentLoaded Event Listener
   
