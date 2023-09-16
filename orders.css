@@ -107,11 +107,33 @@ html{
   .leftOptions{
    display: flex;
    justify-content: space-between;
+   cursor: pointer;
   }
-  .tick{
+  #leftNewTick{
 
   }
-  .optionHeading{
+  #leftPackedTick{
+
+  }
+  #leftTransitTick{
+
+  }
+  #leftDeliveredTick{
+
+  }
+  #optionHeadingNew{
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+  }
+  #optionHeadingPacked{
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+  }
+  #optionHeadingTransit{
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+  }
+  #optionHeadingDelivered{
     display: inline-block;
     font-family: 'Poppins', sans-serif;
   }

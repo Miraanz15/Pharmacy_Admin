@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", function(){
               localStorage.setItem('pharmacyOrders', jsonData);   // store the string in local storage
               console.log("API Data stored in Local Storage");
            } 
+
+           let count = data.length;   // counter to keep track of total length of API
+           let hiddenRows = 0;        // counter to keep track of total rows being hidden and subtracting from total API length to display count
        
         /* Header starts*/
         const head = document.getElementById("head");
@@ -78,9 +81,9 @@ document.addEventListener("DOMContentLoaded", function(){
         leftHeading.classList.add("leftHeading");
         leftHeading.innerText = "Filters";
     
-        const leftCount = document.createElement("div");
+        const leftCount = document.createElement("p");
         leftCount.classList.add("leftCount");
-        leftCount.innerText = "Count: ";
+        leftCount.innerText = "Count: " + count;
        
         /* Left Categories Starts */
         const LeftCategories = document.createElement("div");
@@ -92,11 +95,12 @@ document.addEventListener("DOMContentLoaded", function(){
     
         const leftNewTick = document.createElement("input");
         leftNewTick.type = "checkbox";
-        leftNewTick.classList.add("tick");
+        leftNewTick.id = "leftNewTick";
+        leftNewTick.checked = true;
     
         const leftNewName = document.createElement("div");
         leftNewName.innerText = "New";
-        leftNewName.classList.add("optionHeading");
+        leftNewName.id = "optionHeadingNew";
     
         leftNew.append(leftNewTick, leftNewName);
         /*New Ends */
@@ -107,11 +111,12 @@ document.addEventListener("DOMContentLoaded", function(){
     
         const leftPackedTick = document.createElement("input");
         leftPackedTick.type = "checkbox";
-        leftPackedTick.classList.add("tick");
+        leftPackedTick.id = "leftPackedTick";
+        leftPackedTick.checked = true;
     
         const leftPackedName = document.createElement("div");
         leftPackedName.innerText = "Packed";
-        leftPackedName.classList.add("optionHeading");
+        leftPackedName.id = "optionHeadingPacked";
     
         leftPacked.append(leftPackedTick, leftPackedName);
         /*Packed Ends */
@@ -122,11 +127,12 @@ document.addEventListener("DOMContentLoaded", function(){
     
         const leftTransitTick = document.createElement("input");
         leftTransitTick.type = "checkbox";
-        leftTransitTick.classList.add("tick");
+        leftTransitTick.id = "leftTransitTick";
+        leftTransitTick.checked = true;
     
         const leftTransitName = document.createElement("div");
         leftTransitName.innerText = "InTransit";
-        leftTransitName.classList.add("optionHeading");
+        leftTransitName.id = "optionHeadingTransit";
     
         leftTransit.append(leftTransitTick, leftTransitName);
         /*InTransit Ends */ 
@@ -137,11 +143,12 @@ document.addEventListener("DOMContentLoaded", function(){
     
         const leftDeliveredTick = document.createElement("input");
         leftDeliveredTick.type = "checkbox";
-        leftDeliveredTick.classList.add("tick");
+        leftDeliveredTick.id = "leftDeliveredTick";
+        leftDeliveredTick.checked = true;
     
         const leftDeliveredName = document.createElement("div");
         leftDeliveredName.innerText = "Delivered";
-        leftDeliveredName.classList.add("optionHeading");
+        leftDeliveredName.id = "optionHeadingDelivered";
     
         leftDelivered.append(leftDeliveredTick, leftDeliveredName);
         /*Delivered Ends */ 
@@ -156,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function(){
         right.classList.add("right");
 
         const rightTable = document.createElement("table");
+        rightTable.id = "rightTable";
 
         const rightTableHeaderRow = rightTable.insertRow(0);
         rightTableHeaderRow.classList.add("tableHeadRow");
@@ -204,6 +212,207 @@ document.addEventListener("DOMContentLoaded", function(){
        
     
         /* Main Login Ends */
+
+        function updateRowCount() {
+          let tableCount = document.getElementsByClassName("leftCount");
+          let tableCurrent = document.getElementById("rightTable");
+          const rowCount = tableCurrent.rows.length - 1; // Exclude the header row
+          console.log("Table rows :" + rowCount);
+          tableCount.innerText = "Count: " + rowCount;
+        }
+      
+
+        /*Adding Functionality Starts*/
+
+        /*Adding click options to whole checkbox div to toggle Starts*/ 
+        leftNew.addEventListener("click", function() {
+          // Toggle the checked state of the checkbox
+          const checker = document.getElementById("leftNewTick");
+          checker.checked = !checker.checked;
+        });
+        leftPacked.addEventListener("click", function() {
+          // Toggle the checked state of the checkbox
+          const checker = document.getElementById("leftPackedTick");
+          checker.checked = !checker.checked;
+        });
+        leftTransit.addEventListener("click", function() {
+          // Toggle the checked state of the checkbox
+          const checker = document.getElementById("leftTransitTick");
+          checker.checked = !checker.checked;
+        });
+        leftDelivered.addEventListener("click", function() {
+          // Toggle the checked state of the checkbox
+          const checker = document.getElementById("leftDeliveredTick");
+          checker.checked = !checker.checked;
+        });
+        /*Adding click options to whole checkbox div to toggle Ends*/ 
+
+        /*Adding click options only to checkbox to toggle Starts*/
+        leftNewTick.addEventListener("click", function() {
+          // Toggle the checked state of the checkbox
+          const checker = document.getElementById("leftNewTick");
+          checker.checked = !checker.checked;
+        });
+        leftPackedTick.addEventListener("click", function() {
+          // Toggle the checked state of the checkbox
+          const checker = document.getElementById("leftPackedTick");
+          checker.checked = !checker.checked;
+        });
+        leftTransitTick.addEventListener("click", function() {
+          // Toggle the checked state of the checkbox
+          const checker = document.getElementById("leftTransitTick");
+          checker.checked = !checker.checked;
+        });
+        leftDeliveredTick.addEventListener("click", function() {
+          // Toggle the checked state of the checkbox
+          const checker = document.getElementById("leftDeliveredTick");
+          checker.checked = !checker.checked;
+        });
+        /*Adding click options only to checkbox to toggle Ends*/
+
+      
+       /*Displaying rows based upon checkbox starts */
+       const table = document.getElementById("rightTable");
+
+
+       const newChecked = document.getElementById("leftNewTick");
+       const packedChecked = document.getElementById("leftPackedTick");
+       const transitChecked = document.getElementById("leftTransitTick");
+       const deliveredChecked = document.getElementById("leftDeliveredTick");
+
+
+       /*For Displaying New Rows starts */
+
+       newChecked.addEventListener("change", function() {
+       const checked = this.checked; // Get the checkbox value
+
+    // Iterate through the rows of the table (skip the header row)
+       for (let i = 1; i < table.rows.length; i++) {
+        const row = table.rows[i];
+        const cellValue = row.cells[4].textContent; // Get the cell value (e.g., City column)
+
+      // Check if the checkbox is checked and the cell value matches a condition
+        if (checked && cellValue === "New") {
+          row.style.display = "table-row"; // Show the row
+        } else {
+            if(packedChecked.checked && cellValue === "Packed"){
+              row.style.display = "table-row"; // Show the row
+            }
+            else if(transitChecked.checked && cellValue === "InTransit"){
+              row.style.display = "table-row"; // Show the row
+            }
+            else if(deliveredChecked.checked && cellValue === "Delivered"){
+              row.style.display = "table-row"; // Show the row
+            }
+            else{
+              row.style.display = "none"; 
+            }
+        }
+      }
+      updateRowCount();
+  });
+       /*For Displaying New Rows Ends */
+
+       /*For Displaying Packed Rows starts */
+
+       packedChecked.addEventListener("change", function() {
+       const checked = this.checked; // Get the checkbox value
+
+    // Iterate through the rows of the table (skip the header row)
+       for (let i = 1; i < table.rows.length; i++) {
+        const row = table.rows[i];
+        const cellValue = row.cells[4].textContent; // Get the cell value (e.g., City column)
+
+      // Check if the checkbox is checked and the cell value matches a condition
+        if (checked && cellValue === "Packed") {
+          row.style.display = "table-row"; // Show the row
+        } else {
+          if(newChecked.checked && cellValue === "New"){
+            row.style.display = "table-row"; // Show the row
+          }
+          else if(transitChecked.checked && cellValue === "InTransit"){
+            row.style.display = "table-row"; // Show the row
+          }
+          else if(deliveredChecked.checked && cellValue === "Delivered"){
+            row.style.display = "table-row"; // Show the row
+          }
+          else{
+            row.style.display = "none"; 
+          }
+        }
+      }
+      updateRowCount();
+  });  
+       /*For Displaying Packed Rows Ends */
+
+
+     /*For Displaying Transit Rows starts */
+
+       transitChecked.addEventListener("change", function() {
+     const checked = this.checked; // Get the checkbox value
+
+  // Iterate through the rows of the table (skip the header row)
+     for (let i = 1; i < table.rows.length; i++) {
+      const row = table.rows[i];
+      const cellValue = row.cells[4].textContent; // Get the cell value (e.g., City column)
+
+    // Check if the checkbox is checked and the cell value matches a condition
+      if (checked && cellValue === "InTransit") {
+        row.style.display = "table-row"; // Show the row
+      } else {
+        if(newChecked.checked && cellValue === "New"){
+          row.style.display = "table-row"; // Show the row
+        }
+        else if(packedChecked.checked && cellValue === "Packed"){
+          row.style.display = "table-row"; // Show the row
+        }
+        else if(deliveredChecked.checked && cellValue === "Delivered"){
+          row.style.display = "table-row"; // Show the row
+        }
+        else{
+          row.style.display = "none"; 
+        }
+      }
+    }
+    updateRowCount();
+});  
+     /*For Displaying Transit Rows Ends */
+
+     /*For Displaying Delivered Rows starts */
+
+      deliveredChecked.addEventListener("change", function() {
+     const checked = this.checked; // Get the checkbox value
+
+  // Iterate through the rows of the table (skip the header row)
+     for (let i = 1; i < table.rows.length; i++) {
+      const row = table.rows[i];
+      const cellValue = row.cells[4].textContent; // Get the cell value (e.g., City column)
+
+    // Check if the checkbox is checked and the cell value matches a condition
+      if (checked && cellValue === "Delivered") {
+        row.style.display = "table-row"; // Show the row
+      } else {
+        if(newChecked.checked && cellValue === "New"){
+          row.style.display = "table-row"; // Show the row
+        }
+        else if(packedChecked.checked && cellValue === "Packed"){
+          row.style.display = "table-row"; // Show the row
+        }
+        else if(transitChecked.checked && cellValue === "InTransit"){
+          row.style.display = "table-row"; // Show the row
+        }
+        else{
+          row.style.display = "none"; 
+        }
+      }
+    }
+    updateRowCount();
+});  
+     /*For Displaying Delivered Rows Ends */
+
+    
+     /*Adding Functionality Ends*/
+
      
     }   //try Ends
     catch(error) {
