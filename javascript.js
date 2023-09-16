@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
           /*Functionality Starts */
           login.addEventListener('click',function(e){
-            if(userName.value !== userPassword.value){
+            if(userName.value !== userPassword.value ||userName.value === "" || userPassword.value === ""){
               alert("Please enter valid credentials!");
               userName.value = "";
               userPassword.value = "";
