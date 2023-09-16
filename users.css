@@ -75,6 +75,43 @@ html{
 
   /* Header Ends */
 
+  /* Search Starts */
+  #search{
+    display: flex;
+    justify-content: start;
+    height: auto;
+    align-items: center;
+    text-align: center;
+  }
+  #searchItem{
+     width: 42vw;
+     margin-left: 8vw;
+     height: 8vh;
+     padding-left: 4vw;
+     font-size: 15px;
+  }
+  input{
+    border: none;
+    outline: none;
+    margin-bottom: 5vh;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.461);
+  }
+  #login{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background-color: #20b883;
+    border: none;
+    border-radius: 30px;
+    width: 12vw;
+    height: 8vh;
+    cursor: pointer;
+    align-items: center;
+    margin-left: 5vw;
+    margin-bottom: 5vh;
+  }
+
+  /* Search Ends */
+
   /* Main Login Starts */
   #usersHeading{
     margin-top: 15vh;
