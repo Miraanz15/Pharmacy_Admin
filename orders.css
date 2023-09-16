@@ -83,6 +83,7 @@ html{
   #main{
     display: grid;
     grid-template-columns: 20% 80%;
+    grid-column-gap: 30px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -113,4 +114,29 @@ html{
   .optionHeading{
     display: inline-block;
     font-family: 'Poppins', sans-serif;
+  }
+  .right{
+  }
+  table{
+    border-collapse: separate; /* Separate borders (default value) */
+    border-spacing: 10px; /* Set the spacing between rows and columns (horizontal and vertical spacing) */
+    width: 100%;
+  }
+  .tableHeadRow{
+    background-color: #f6f7fb;  
+  }
+  .tableRows{
+    font-family: 'Poppins', sans-serif;
+    border: 20px solid white;
+    border-collapse: collapse;
+  }
+  .tableHeadCells{
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-collapse: collapse; 
+  }
+  .rowCells{
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    border-collapse: collapse;
   }
