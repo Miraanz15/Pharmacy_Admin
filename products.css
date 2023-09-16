@@ -60,7 +60,7 @@ html{
     border-bottom: 3px solid #08cd8e;
     border-radius: 2px;
   }
-  #detailsHeaderOrders{
+  #detailsHeaderProducts{
     margin-bottom: 0vh;
     color: #08cd8e;
   }
@@ -76,7 +76,7 @@ html{
   /* Header Ends */
 
   /* Main Login Starts */
-  #orderHeading{
+  #productHeading{
     margin-top: 15vh;
     font-family: 'Poppins', sans-serif;
     margin-left: 8vw;
@@ -86,7 +86,7 @@ html{
 
   #main{
     display: grid;
-    grid-template-columns: 10% 90%;
+    grid-template-columns: 15% 85%;
     grid-column-gap: 30px;
     margin-left: 8vw;
     margin-right: 8vw;
@@ -116,31 +116,17 @@ html{
    cursor: pointer;
    margin-bottom: 2vh;
   }
-  #leftNewTick{
+  #leftExpiredTick{
     margin-right: 1vw;
   }
-  #leftPackedTick{
+  #leftLowTick{
     margin-right: 1vw;
   }
-  #leftTransitTick{
-    margin-right: 1vw;
-  } 
-  #leftDeliveredTick{
-    margin-right: 1vw;
-  }
-  #optionHeadingNew{
+  #optionHeadingExpired{
     display: inline-block;
     font-family: 'Poppins', sans-serif;
   }
-  #optionHeadingPacked{
-    display: inline-block;
-    font-family: 'Poppins', sans-serif;
-  }
-  #optionHeadingTransit{
-    display: inline-block;
-    font-family: 'Poppins', sans-serif;
-  }
-  #optionHeadingDelivered{
+  #optionHeadingLow{
     display: inline-block;
     font-family: 'Poppins', sans-serif;
   }
@@ -180,11 +166,20 @@ html{
     background-color: white;
     border-collapse: collapse;
     font-size: 15px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    padding-right: 10px;
   }
   .rowCells:first-of-type{
      color: rgba(0, 0, 0, 0.404);
   }
-  .rowCells:nth-child(4){
+  .rowCells:nth-child(3){
+    color: rgba(0, 0, 0, 0.404);
+ }
+ .rowCells:nth-child(5){
+    color: rgba(0, 0, 0, 0.404);
+ }
+ .rowCells:nth-child(6){
     color: rgba(0, 0, 0, 0.404);
  }
 
