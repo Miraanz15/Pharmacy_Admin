@@ -1,0 +1,141 @@
+html{
+    scroll-behavior: smooth;
+  }
+  body{
+    margin: 0px;
+    background-color: #f6f7fb;
+  }
+  /* Header Starts */
+  #head{
+    background-color: white;
+    display: flex;
+    justify-content:flex-start;
+    overflow: hidden;
+    align-items: center;
+    margin-bottom: 5vh;
+    padding-right: 10vw;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    box-shadow: 0px 2px 4px rgb(205, 205, 205);
+  }
+  #comp{
+    display: flex;
+    margin-left: 4vw;
+    align-items: center;
+  }
+  #compLogo{
+    display: inline-block;
+    width: auto;
+    height: 5vh;
+    margin-right: 0.7vw;
+  }
+  #compName{
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    display: inline-block;
+    text-decoration: none;
+    height: auto;
+    align-items: center;
+    width: 18vw;
+  }
+  #detailsHeader{
+    margin-left: -100px;
+    align-items: center;
+    display: flex;
+  }
+  .detailsHeaderCommon{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    margin-top: 1vh;
+    display: inline-block;
+    margin-left: 25px;
+    color: rgba(0, 0, 0, 0.788);
+    text-decoration: none;
+  }
+  .detailsHeaderCommon:focus{
+    margin-bottom: 0vh;
+    color: #08cd8e;
+    border-bottom: 3px solid #08cd8e;
+    border-radius: 2px;
+  }
+  #detailsHeaderUsers{
+    margin-bottom: 0vh;
+    color: #08cd8e;
+  }
+  .logOut{
+    margin-left: 55vw;
+  }
+  .logOut:focus{
+    margin-bottom: 0vh;
+    color: rgba(0, 0, 0, 0.788);
+    border-bottom: none;
+  }
+
+  /* Header Ends */
+
+  /* Main Login Starts */
+  #usersHeading{
+    margin-top: 15vh;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 8vw;
+    font-size: 30px;
+    font-weight:bolder;
+  }
+
+  #main{
+    display: grid;
+    grid-template-columns: auto;
+    margin-left: 8vw;
+    margin-right: 8vw;
+  }
+ 
+  /*Right section starts */
+  .right{
+    margin-left: 5px;
+  }
+  table{
+    border-collapse: collapse; /* Separate borders (default value) */
+    border-spacing: 10px; /* Set the spacing between rows and columns (horizontal and vertical spacing) */
+    width: 100%;
+  }
+  .tableHeadRow{
+    background-color: #f6f7fb;  
+    width: 100%;
+  }
+  .tableRows{
+    font-family: 'Poppins', sans-serif;
+    border: 20px solid white;
+    border-collapse: collapse;
+  }
+  .tableHeadCells{
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-collapse: collapse; 
+    padding-bottom: 12px;
+    font-weight: 1000;
+    font-size: 15px;
+  }
+  .tableHeadCells:first-of-type{
+    padding-left: 10px;
+  }
+  .rowCells{
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  .rowCells:first-of-type{
+     color: rgba(0, 0, 0, 0.404);
+  }
+  .rowCells:nth-child(4){
+    color: rgba(0, 0, 0, 0.404);
+ }
+
+  /*Right section Ends */
+
+
+
+ 
+
