@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", function(){
+
+  let sessionToken = localStorage.getItem("sessionToken");
+
+  if (sessionToken) {
+   // Redirect to the order page if the session token is logged in
+   window.location.href = "orders.html";
+  }
   
   
           /* Header starts*/
@@ -68,18 +75,30 @@ document.addEventListener("DOMContentLoaded", function(){
           /* Main Login Ends */
 
           /*Functionality Starts */
+          
+
           login.addEventListener('click',function(e){
-            if(userName.value !== userPassword.value ||userName.value === "" || userPassword.value === ""){
+            if(userName.value !== userPassword.value || userName.value === "" || userPassword.value === ""){
               alert("Please enter valid credentials!");
               userName.value = "";
               userPassword.value = "";
             }
             else{ 
-              alert("Login successful!");  
+              e.preventDefault();
+              alert("Login successful!");
+
+              sessionToken = userName +  "_Logged";
+              localStorage.setItem("sessionToken", sessionToken); 
+
               userName.value = "";
               userPassword.value = "";
+              window.location.href = "orders.html";
             }
-          })  
+          });
+          
+         
+
+
           /*Functionality Starts */
   
   });    // End of DOMContentLoaded Event Listener

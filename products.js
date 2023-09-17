@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function(){
       
         const detailsHeaderOrders = document.createElement("a");
         detailsHeaderOrders.classList.add("detailsHeaderCommon");
-        detailsHeaderOrders.href = "#";
+        detailsHeaderOrders.href = "orders.html";
         detailsHeaderOrders.innerHTML = `Orders`;
       
         const detailsHeaderProducts = document.createElement("a");
@@ -90,13 +90,13 @@ document.addEventListener("DOMContentLoaded", function(){
     
         const detailsHeaderUsers = document.createElement("a");
         detailsHeaderUsers.classList.add("detailsHeaderCommon");
-        detailsHeaderUsers.href = "#"; 
+        detailsHeaderUsers.href = "users.html"; 
         detailsHeaderUsers.innerHTML = `Users`;
     
         const logOut = document.createElement("a");
         logOut.classList.add("logOut");
         logOut.classList.add("detailsHeaderCommon");
-        logOut.href = "#"; 
+        logOut.href = "index.html"; 
         logOut.innerHTML = `Logout`;
       
         detailsHeader.append(detailsHeaderOrders, detailsHeaderProducts, detailsHeaderUsers, logOut);

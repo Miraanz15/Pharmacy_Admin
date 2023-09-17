@@ -53,18 +53,18 @@ document.addEventListener("DOMContentLoaded", function(){
     
       const detailsHeaderProducts = document.createElement("a");
       detailsHeaderProducts.classList.add("detailsHeaderCommon");
-      detailsHeaderProducts.href = "#"; 
+      detailsHeaderProducts.href = "products.html"; 
       detailsHeaderProducts.innerHTML = `Products`;
   
       const detailsHeaderUsers = document.createElement("a");
       detailsHeaderUsers.classList.add("detailsHeaderCommon");
-      detailsHeaderUsers.href = "#"; 
+      detailsHeaderUsers.href = "users.html"; 
       detailsHeaderUsers.innerHTML = `Users`;
   
-      const logOut = document.createElement("a");
-      logOut.classList.add("logOut");
+      const logOut = document.createElement("div");
+      logOut.id = "logOut";
       logOut.classList.add("detailsHeaderCommon");
-      logOut.href = "#"; 
+      // logOut.href = "index.html"; 
       logOut.innerHTML = `Logout`;
     
       detailsHeader.append(detailsHeaderOrders, detailsHeaderProducts, detailsHeaderUsers, logOut);
@@ -640,8 +640,31 @@ document.addEventListener("DOMContentLoaded", function(){
       /*Displaying rows based upon checkbox whole div Ends */
 
 
+      /* logout functionality starts */
+      /* const sessionToken = localStorage.getItem("sessionToken");
 
-   
+      if (!sessionToken) {
+       // Redirect to the login page if the session token is missing
+       window.location.href = "index.html";
+      }
+      const logoutButton = document.getElementsByClassName("logOut");
+
+      logoutButton.addEventListener("click", function() {
+        // Remove the session token from localStorage (log out)
+        localStorage.removeItem("sessionToken");
+    
+        // Redirect to the login page
+        window.location.href = "index.html";
+      }); */
+         /* logout functionality ends */ 
+         
+        const logoutButton = document.getElementById("logOut");
+
+      logoutButton.addEventListener("click", function() {
+        // Remove the session token from localStorage (log out)
+        localStorage.removeItem("sessionToken");
+        window.location.href = "index.html";
+      });
   
    /*Adding Functionality Ends*/
 

@@ -44,12 +44,12 @@ document.addEventListener("DOMContentLoaded", function(){
       
         const detailsHeaderOrders = document.createElement("a");
         detailsHeaderOrders.classList.add("detailsHeaderCommon");
-        detailsHeaderOrders.href = "#";
+        detailsHeaderOrders.href = "orders.html";
         detailsHeaderOrders.innerHTML = `Orders`;
       
         const detailsHeaderProducts = document.createElement("a");
         detailsHeaderProducts.classList.add("detailsHeaderCommon");
-        detailsHeaderProducts.href = "#"; 
+        detailsHeaderProducts.href = "products.html"; 
         detailsHeaderProducts.innerHTML = `Products`;
     
         const detailsHeaderUsers = document.createElement("a");
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(){
         const logOut = document.createElement("a");
         logOut.classList.add("logOut");
         logOut.classList.add("detailsHeaderCommon");
-        logOut.href = "#"; 
+        logOut.href = "index.html"; 
         logOut.innerHTML = `Logout`;
       
         detailsHeader.append(detailsHeaderOrders, detailsHeaderProducts, detailsHeaderUsers, logOut);
@@ -162,11 +162,25 @@ document.addEventListener("DOMContentLoaded", function(){
 
         const searchInput = document.getElementById("search");
   
-
-        
-
+  
+         /* Enter key event listerer starts when length is 1*/
+         searchInput.addEventListener('keyup',function(event){
+          if (event.keyCode === 13 && event.target.value.length === 1) {
+            // Perform the desired action when Enter is pressed
+                alert("Please enter at least 2 characters");
+          }
+         });
+         /* Enter key event listerer ends when length is 1*/
+       
+        /* Input value event listerer starts */
         searchInput.addEventListener('input', function(event) {
-          if(event.target.value.length >= 2){
+          if(event.target.value.length === 0){
+            for (let i = 1; i < rightTable.rows.length; i++) {
+              const row = rightTable.rows[i];
+                row.style.display = "table-row";
+             }
+          }
+          else if(event.target.value.length >= 2){
             const searchValue = event.target.value.toLowerCase();
             console.log(searchValue);
              
@@ -188,11 +202,47 @@ document.addEventListener("DOMContentLoaded", function(){
            }
           }
           else{
-            alert("Please enter at least 2 characters");
+          /* alert("Please enter at least 2 characters");   */
           }
            
        }); 
+        /* Input value event listerer ends */
 
+       /* Backspace event starts*/
+       searchInput.addEventListener("keyup", function(event) {
+        const filterText = event.target.value.toLowerCase();
+        const isBackspace = event.key === "Backspace";
+    // If backspace is pressed and the input is empty, show all table rows
+    if (isBackspace && filterText === "") {
+      for (let i = 1; i < rightTable.rows.length; i++) {
+        const row = rightTable.rows[i];
+          row.style.display = "table-row";
+       }
+    }
+    else if(event.target.value.length === 1) {
+      // Perform the desired action when Enter is pressed
+          alert("Please enter at least 2 characters");
+    }
+
+    // Otherwise, filter the table based on the input
+    else{
+    for (let i = 1; i < rightTable.rows.length; i++) {
+      const row = rightTable.rows[i];
+      const cellValue = row.cells[2].textContent;
+      const itemValue = cellValue.toLowerCase();
+      if(itemValue.includes(filterText)){
+        row.style.display = "table-row";
+      }
+      else{
+        row.style.display = "none";
+      }  
+     }
+    }
+    });
+   /* Backspace event ends*/
+
+
+       
       /* Reset Button Functionality Starts*/
 
       resetButton.addEventListener("click", function() {

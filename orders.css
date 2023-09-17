@@ -64,8 +64,9 @@ html{
     margin-bottom: 0vh;
     color: #08cd8e;
   }
-  .logOut{
+  #logOut{
     margin-left: 55vw;
+    cursor: pointer;
   }
   .logOut:focus{
     margin-bottom: 0vh;
