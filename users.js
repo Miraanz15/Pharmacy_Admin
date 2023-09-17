@@ -58,10 +58,10 @@ document.addEventListener("DOMContentLoaded", function(){
         detailsHeaderUsers.href = "#"; 
         detailsHeaderUsers.innerHTML = `Users`;
     
-        const logOut = document.createElement("a");
-        logOut.classList.add("logOut");
+        const logOut = document.createElement("div");
+        logOut.id = "logOut";
         logOut.classList.add("detailsHeaderCommon");
-        logOut.href = "index.html"; 
+        // logOut.href = "index.html"; 
         logOut.innerHTML = `Logout`;
       
         detailsHeader.append(detailsHeaderOrders, detailsHeaderProducts, detailsHeaderUsers, logOut);
@@ -257,6 +257,16 @@ document.addEventListener("DOMContentLoaded", function(){
       /* Reset Button Functionality Ends*/
 
        
+
+      /* logout functionality starts */  
+      const logoutButton = document.getElementById("logOut");
+
+      logoutButton.addEventListener("click", function() {
+        // Remove the session token from localStorage (log out)
+        localStorage.removeItem("sessionToken");
+        window.location.href = "index.html";
+      });
+       /* logout functionality ends */ 
 
         /*Adding Functionality Ends*/
      

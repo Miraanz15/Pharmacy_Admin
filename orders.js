@@ -639,32 +639,16 @@ document.addEventListener("DOMContentLoaded", function(){
    
       /*Displaying rows based upon checkbox whole div Ends */
 
-
-      /* logout functionality starts */
-      /* const sessionToken = localStorage.getItem("sessionToken");
-
-      if (!sessionToken) {
-       // Redirect to the login page if the session token is missing
-       window.location.href = "index.html";
-      }
-      const logoutButton = document.getElementsByClassName("logOut");
-
-      logoutButton.addEventListener("click", function() {
-        // Remove the session token from localStorage (log out)
-        localStorage.removeItem("sessionToken");
-    
-        // Redirect to the login page
-        window.location.href = "index.html";
-      }); */
-         /* logout functionality ends */ 
          
-        const logoutButton = document.getElementById("logOut");
+      /* logout functionality starts */  
+      const logoutButton = document.getElementById("logOut");
 
       logoutButton.addEventListener("click", function() {
         // Remove the session token from localStorage (log out)
         localStorage.removeItem("sessionToken");
         window.location.href = "index.html";
       });
+       /* logout functionality ends */ 
   
    /*Adding Functionality Ends*/
 

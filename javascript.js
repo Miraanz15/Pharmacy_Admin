@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function(){
               e.preventDefault();
               alert("Login successful!");
 
-              sessionToken = userName +  "_Logged";
+              sessionToken = "User_Logged";
               localStorage.setItem("sessionToken", sessionToken); 
 
               userName.value = "";
